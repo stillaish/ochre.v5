@@ -90,7 +90,7 @@ const WeatherContext = createContext<{
   fetchMarineData: (lat: number, lon: number) => Promise<void>;
 } | null>(null);
 
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
 export const WeatherProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(weatherReducer, initialState);
